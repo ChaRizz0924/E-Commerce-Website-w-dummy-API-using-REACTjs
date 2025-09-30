@@ -119,8 +119,8 @@ export default function App() {
     function clearCart() { setCartItems([]); }
 
     return (
-        <div className="min-h-screen bg-gray-50">
-            <header className="bg-white shadow sticky top-0 z-20">
+        <div className="min-h-screen bg-white">
+            <header className="bg-blue-50 shadow sticky top-0 z-20">
                 <div className="container mx-auto px-4 py-4 flex items-center justify-between gap-4">
                         <img
                         src="/shAPI.png"
@@ -128,7 +128,7 @@ export default function App() {
                         className="h-15 w-auto"
                         />
                     <div className="flex items-center gap-4">
-                <div className="text-lg text-gray-600">
+                <div className="text-lg text-gray-900">
                     Available Products: {total}
                 </div>
                 <button
@@ -189,7 +189,6 @@ export default function App() {
                 updateCart={updateCart}
                 removeFromCart={removeFromCart}
                 onCheckout={() => {
-                    // naive checkout flow
                     alert('Checkout successful, Thank you!');
                     clearCart();
                     setSelectedProduct(null);
