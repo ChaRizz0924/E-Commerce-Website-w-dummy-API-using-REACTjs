@@ -1,4 +1,5 @@
 import React from 'react';
+import { ShoppingCartIcon } from "lucide-react";
 
 export default function productCard({ product, onSelect, addToCart }) {
     const discountPrice = Math.round(product.price * (1 - (product.discountPercentage || 0) / 100));
@@ -22,7 +23,12 @@ return (
                 ) : null}
             </div>
             <div className="flex flex-col gap-2">
-                <button onClick={addToCart} className="bg-indigo-600 text-white px-3 py-1 rounded">Add</button>
+                <button
+                    onClick={addToCart}
+                    className="flex items-center gap-2 bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded">
+                        <ShoppingCartIcon size={18} className="text-white" />
+                        <span>Add to Cart</span>
+                </button>
             </div>
         </div>
     </div>

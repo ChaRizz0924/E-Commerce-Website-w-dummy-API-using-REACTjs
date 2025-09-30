@@ -3,6 +3,8 @@ import ProductList from './components/productList';
 import ProductDetails from './components/productDetails';
 import CartPanel from './components/cartPanel';
 import FiltersBar from './components/filtersbar';
+import { ShoppingCart } from 'lucide-react';
+
 
 
 export default function App() {
@@ -18,7 +20,7 @@ export default function App() {
     const [sort, setSort] = useState('relevance');
     const [priceRange, setPriceRange] = useState([0, 2000]);
     const [page, setPage] = useState(1);
-    const [limit] = useState(12);
+    const [limit] = useState(8);
     const [total, setTotal] = useState(0);
 
 
@@ -119,18 +121,33 @@ export default function App() {
     return (
         <div className="min-h-screen bg-gray-50">
             <header className="bg-white shadow sticky top-0 z-20">
-                <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-                    <h1 className="text-5xl font-bold text-blue-950">shAPI</h1>
+                <div className="container mx-auto px-4 py-4 flex items-center justify-between gap-4">
+                        <img
+                        src="/shAPI.png"
+                        alt="Logo"
+                        className="h-15 w-auto"
+                        />
                     <div className="flex items-center gap-4">
-                        <div className="text-sm text-gray-600">Products: {total}</div>
-                        <button
-                        onClick={() => setSelectedProduct({ openCart: true })}
-                        className="bg-indigo-600 text-white px-3 py-1 rounded"
-                        >Cart ({cartItems.length})</button>
-                        </div>
-                    </div>
+                <div className="text-lg text-gray-600">
+                    Available Products: {total}
+                </div>
+                <button
+                    onClick={() => setSelectedProduct({ openCart: true })}
+                    className="relative bg-transparent transition-colors duration-300 ease-in-out hover:bg-gray-200  p-2 rounded-4xl "
+                >
+                    <ShoppingCart size={30} className='text-blue-950' />
+                    {cartItems.length > 0 && (
+                    <span
+                        className="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold 
+                                rounded-full h-5 w-5 flex items-center justify-center"
+                    >
+                        {cartItems.length}
+                    </span>
+                    )}
+                </button>
+                </div>
+                </div>
             </header>
-
             <main className="container mx-auto px-4 py-6">
                 <FiltersBar
                     query={query}
