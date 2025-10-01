@@ -120,32 +120,34 @@ export default function App() {
 
     return (
         <div className="min-h-screen bg-white">
-            <header className="bg-blue-50 shadow sticky top-0 z-20">
+            <header className="bg-blue-900 shadow sticky top-0 z-20">
                 <div className="container mx-auto px-4 py-4 flex items-center justify-between gap-4">
+                    <div className="flex items-center gap-2"> 
                         <img
                         src="/shAPI.png"
                         alt="Logo"
                         className="h-15 w-auto"
                         />
+                        <span className="text-2xl font-bold text-white">shAPI</span>
+                    </div>   
                     <div className="flex items-center gap-4">
-                <div className="text-lg text-gray-900">
-                    Available Products: {total}
-                </div>
-                <button
-                    onClick={() => setSelectedProduct({ openCart: true })}
-                    className="relative bg-transparent transition-colors duration-300 ease-in-out hover:bg-gray-200  p-2 rounded-4xl "
-                >
-                    <ShoppingCart size={30} className='text-blue-950' />
-                    {cartItems.length > 0 && (
-                    <span
-                        className="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold 
-                                rounded-full h-5 w-5 flex items-center justify-center"
-                    >
-                        {cartItems.length}
-                    </span>
-                    )}
-                </button>
-                </div>
+                        <div className="text-lg text-white">
+                            Available Products: {total}
+                        </div>
+                        <button
+                            onClick={() => setSelectedProduct({ openCart: true })}
+                            className="relative bg-transparent transition-colors duration-300 ease-in-out hover:bg-gray-900  p-2 rounded-4xl ">
+                                <ShoppingCart size={30} className='text-white' />
+                                {cartItems.length > 0 && (
+                                <span
+                                    className="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold 
+                                            rounded-full h-5 w-5 flex items-center justify-center"
+                                >
+                                    {cartItems.length}
+                                </span>
+                            )}
+                        </button>
+                    </div>
                 </div>
             </header>
             <main className="container mx-auto px-4 py-6">

@@ -15,9 +15,9 @@ return (
 
 
         <div className="mt-6 flex items-center justify-center gap-2">
-            <button disabled={page<=1} onClick={()=>setPage(page-1)} className="px-3 py-1 border rounded duration-300 ease-in-out hover:bg-gray-400 ">Prev</button>
+            <button disabled={page<=1} onClick={()=>setPage(page-1)} className="px-3 py-1 border rounded duration-300 ease-in-out hover:bg-blue-900 hover:text-white">Prev</button>
                 <span className="px-3 py-1">Page {page} / {pages}</span>
-            <button disabled={page>=pages} onClick={()=>setPage(page+1)} className="px-3 py-1 border rounded duration-300 ease-in-out hover:bg-gray-400 ">Next</button>
+            <button disabled={page>=pages} onClick={()=>setPage(page+1)} className="px-3 py-1 border rounded duration-300 ease-in-out hover:bg-blue-900 hover:text-white">Next</button>
         </div>
     </div>
 );
